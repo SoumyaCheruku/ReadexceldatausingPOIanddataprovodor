@@ -1,8 +1,10 @@
 package com.demo.excel;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -50,7 +52,8 @@ public class DataProvidorToReadExcel extends DemoBase {
 		driver.findElement(By.name("client_lookup")).sendKeys(Company);
 		
 		driver.findElement(By.xpath("//*[@id='contactForm']/table/tbody/tr[1]/td/input[2]")).click();
-
+		
+	
 	}
 
 }
