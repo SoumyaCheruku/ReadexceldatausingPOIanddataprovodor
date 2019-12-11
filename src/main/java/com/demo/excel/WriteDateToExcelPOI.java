@@ -1,3 +1,6 @@
+//USING APACHE POI AND WITHOUT USING DATAPROVIDOR
+//CAN BE USED FOR BOTH READ AND WRITE DATA FROM EXCEL
+//VEDIO USED: : https://www.youtube.com/watch?v=pJMJvw06QqQ&t=956s
 package com.demo.excel;
 
 import java.io.FileInputStream;
@@ -24,18 +27,20 @@ public class WriteDateToExcelPOI extends DemoBase{
 	@Test
 	public void Register() throws IOException, InterruptedException {
 
-		ArrayList<String> Title = readExcelDate(0);
-		ArrayList<String> FirstName = readExcelDate(1);
-		ArrayList<String> LastName = readExcelDate(2);
-		ArrayList<String> Company = readExcelDate(3);
+		ArrayList<String> Title = readExcelData(0);
+		ArrayList<String> FirstName = readExcelData(1);
+		ArrayList<String> LastName = readExcelData(2);
+		ArrayList<String> Company = readExcelData(3);
 		
 		// ArrayList<String> result= readExcelDate(2);
+		
+		driver.switchTo().frame("mainpanel");
 
-		for (int i = 1; i <= Title.size(); i++) {
+		for (int i = 1; i < Title.size(); i++) {			
 			
-			driver.switchTo().frame("mainpanel");
+			Thread.sleep(2000);
 			
-			WebElement ele1 =driver.findElement(By.xpath("//*[@id='navmenu']/ul/li[4]/a"));
+			WebElement ele1 =driver.findElement(By.xpath("//*[@id='navmenu']/ul/li[4]/a"));							
 			Actions a =new Actions(driver);
 			a.moveToElement(ele1).build().perform();
 			
@@ -110,7 +115,7 @@ public class WriteDateToExcelPOI extends DemoBase{
 
 	}
 
-	public ArrayList<String> readExcelDate(int colNo) throws IOException {
+	public ArrayList<String> readExcelData(int colNo) throws IOException {
 		FileInputStream fis = new FileInputStream(
 				"/home/sbv6/Desktop/Soumya/eclipse_workspace/"
 				+ "demoexcelpoi/src/main/java/com/testdata/dataprovidorfor.xlsx");

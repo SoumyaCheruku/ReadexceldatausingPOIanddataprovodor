@@ -16,13 +16,18 @@ public class DemoBase {
 	public void start() throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver","//home//sbv6//Downloads//chromedriver");		
 		driver =  new ChromeDriver(); 
-		driver.get("https://www.freecrm.com/index.html");
+		driver.get("https://www.crmpro.com/");
 		driver.manage().window().maximize();
-		driver.findElement(By.name("username")).sendKeys("soumya456");
-		driver.findElement(By.name("password")).sendKeys("$oumya@12");
+		driver.findElement(By.name("username")).sendKeys("santhosh456");
+		driver.findElement(By.name("password")).sendKeys("santhusoumya");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		
+	}
+	
+	public void quit(){
+		
+		driver.quit();
 	}
 
 }
